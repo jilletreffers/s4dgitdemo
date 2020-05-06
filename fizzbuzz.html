@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+var ruleMap = 	[
+					{sound: "fizz" , index: 3, adheresToRule: isDivisableByIndex }, 
+					{sound: "buzz" , index: 5, adheresToRule: isDivisableByIndex }
+				]
+
+function isDivisableByIndex(number ){
+	if(number % this.index == 0){
+		return true
+	}
+	return false
+}
+
+
+function writeLogs(numberOfLogs){
+	for(var i = 1; i <= numberOfLogs ; i++){
+		var outputString = ""
+		for(var s = 0 ; s < ruleMap.length; s++){
+			if(ruleMap[s].adheresToRule(i)){
+				outputString += ruleMap[s].sound
+			}
+		}
+		if(outputString == ""){
+			outputString = i
+		}
+		console.log(outputString)
+	}
+}
+writeLogs(100)
+
+
+</script>
+</body>
+</html>
